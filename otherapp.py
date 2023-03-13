@@ -99,9 +99,8 @@ if chart_select == 'Piechart':
         #ax.axis('equal')
         #st.pyplot(fig)
         #st.write(wedge)
-        df = px.data.gapminder().query("year == 2007").query("continent == 'Europe'")
         fig = px.pie(df, values=size_list, names=wedge_list)
-        st.fig.show()
+        st.plotly_chart(fig)
     except Exception as e:
         print(e)
  
