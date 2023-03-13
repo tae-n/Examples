@@ -86,14 +86,14 @@ if chart_select == 'Boxplot':
         print(e)
 
 if chart_select == 'Piechart':
-  st.sidebar.subheader("Piechart Settings")
-  try:
-      wedge = st.sidebar.selectbox("Wedge", options=non_numeric_columns)
-      size = st.sidebar.selectbox("Size", options=numeric_columns)
-      figure, ax = plt.subplots()
-      ax.pie(size, labels=wedge, autopct='%1.1f%%', startangle=90)
-      ax.axis('equal')
-      st.pyplot(figure)
-   except Exception as e:
-      print(e)
+    st.sidebar.subheader("Piechart Settings")
+    try:
+        wedge = st.sidebar.selectbox("Wedge", options=non_numeric_columns)
+        size = st.sidebar.selectbox("Size", options=numeric_columns)
+        figure, ax = plt.subplots()
+        ax.pie(size, labels=wedge, autopct='%1.1f%%', startangle=90)
+        ax.axis('equal')
+        st.pyplot(figure)
+    except Exception as e:
+        print(e)
       
