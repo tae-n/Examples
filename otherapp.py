@@ -91,6 +91,7 @@ if chart_select == 'Piechart':
     st.sidebar.subheader("Piechart Settings")
     try:
         wedge = st.sidebar.selectbox("Wedge", options=non_numeric_columns)
+        print(wedge)
         size = st.sidebar.selectbox("Size", options=numeric_columns)
         fig, ax = plt.subplots()
         ax.pie(size, labels=wedge, autopct='%1.1f%%', startangle=90)
