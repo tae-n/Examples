@@ -93,7 +93,7 @@ if chart_select == 'Piechart':
         figure, ax = plt.subplots()
         ax.pie(size, labels=wedge, autopct='%1.1f%%', startangle=90)
         ax.axis('equal')
-        st.pyplot(figure)
+        st.plotly_chart(figure)
     except Exception as e:
         print(e)
       
