@@ -84,7 +84,7 @@ if chart_select == 'Boxplot':
         color_value = st.sidebar.selectbox("Color", options=non_numeric_columns)
         plot = px.box(data_frame=df, y=y, x=x, color=color_value)
         st.plotly_chart(plot)
-        st.titel(x)
+        st.title(x)
     except Exception as e:
         print(e)
 
