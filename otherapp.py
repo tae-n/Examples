@@ -36,7 +36,7 @@ except Exception as e:
 
 chart_select = st.sidebar.selectbox(
     label="Select the chart type",
-    options=['Scatterplots', 'Lineplots', 'Histogram', 'Boxplot']
+    options=['Scatterplots', 'Lineplots', 'Histogram', 'Boxplot', 'Piechart']
 )
 
 if chart_select == 'Scatterplots':
@@ -84,3 +84,14 @@ if chart_select == 'Boxplot':
         st.plotly_chart(plot)
     except Exception as e:
         print(e)
+
+if chart_select == 'Piechart':
+  st.sidebar.subheader("Piechart Settings")
+  try:
+      wedge = st.sidebar.selectbox("Wedge", options=non_numeric_columns)
+      size = st.sidebar.selectbox("Size", options=numeric_columns)
+      figure, ax = plt.subplots()
+      ax.pie(size, labels=wedge, autopct='%1.1f%%', startangle=90)
+      ax.axis('equal')
+      st.pyplot(figure)
+      
