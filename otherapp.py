@@ -101,7 +101,7 @@ if chart_select == 'Piechart':
         #st.write(wedge)
         df = px.data.gapminder().query("year == 2007").query("continent == 'Europe'")
         fig = px.pie(df, values=size_list, names=wedge_list)
-        fig.show()
+        st.fig.show()
     except Exception as e:
         print(e)
  
