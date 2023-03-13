@@ -92,13 +92,8 @@ if chart_select == 'Piechart':
     try:
         wedge = st.sidebar.selectbox("Wedge", options=non_numeric_columns)
         size = st.sidebar.selectbox("Size", options=numeric_columns)
-     #   fig, ax = plt.subplots()
         wedge_list = df[wedge].tolist()
         size_list = df[size].tolist()
-        #ax.pie(size_list, labels=wedge_list, autopct='%1.1f%%', startangle=90)
-        #ax.axis('equal')
-        #st.pyplot(fig)
-        #st.write(wedge)
         fig = px.pie(df, values=size_list, names=wedge_list)
         st.plotly_chart(fig)
     except Exception as e:
