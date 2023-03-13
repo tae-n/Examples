@@ -80,6 +80,7 @@ if chart_select == 'Boxplot':
     st.sidebar.subheader("Boxplot Settings")
     try:
         y = st.sidebar.selectbox("Y axis", options=numeric_columns)
+        print(y)
         x = st.sidebar.selectbox("X axis", options=non_numeric_columns)
         color_value = st.sidebar.selectbox("Color", options=non_numeric_columns)
         plot = px.box(data_frame=df, y=y, x=x, color=color_value)
