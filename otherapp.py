@@ -92,10 +92,11 @@ if chart_select == 'Piechart':
     try:
         wedge = st.sidebar.selectbox("Wedge", options=non_numeric_columns)
         size = st.sidebar.selectbox("Size", options=numeric_columns)
-        figure, ax = plt.subplots()
-        ax.pie(size, labels=wedge, autopct='%1.1f%%', startangle=90)
+        wedge_tuple = tuple(wedge)
+        fig, ax = plt.subplots()
+        ax.pie(size, labels=wedge_tuple, autopct='%1.1f%%', startangle=90)
         ax.axis('equal')
-        st.pyplot(figure)
+        st.pyplot(fig)
     except Exception as e:
         print(e)
         
