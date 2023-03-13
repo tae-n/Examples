@@ -80,7 +80,6 @@ if chart_select == 'Boxplot':
     st.sidebar.subheader("Boxplot Settings")
     try:
         y = st.sidebar.selectbox("Y axis", options=numeric_columns)
-        print(y)
         x = st.sidebar.selectbox("X axis", options=non_numeric_columns)
         color_value = st.sidebar.selectbox("Color", options=non_numeric_columns)
         plot = px.box(data_frame=df, y=y, x=x, color=color_value)
@@ -92,12 +91,12 @@ if chart_select == 'Piechart':
     st.sidebar.subheader("Piechart Settings")
     try:
         wedge = st.sidebar.selectbox("Wedge", options=non_numeric_columns)
-        print(wedge)
         size = st.sidebar.selectbox("Size", options=numeric_columns)
         fig, ax = plt.subplots()
         ax.pie(size, labels=wedge, autopct='%1.1f%%', startangle=90)
         ax.axis('equal')
-        st.plotly_chart(fig)
+        st.pyplot(fig)
+        st.write(wedge)
     except Exception as e:
         print(e)
         
