@@ -36,7 +36,7 @@ except Exception as e:
 
 chart_select = st.sidebar.selectbox(
     label="Select the chart type",
-    options=['Scatterplots', 'Lineplots', 'Histogram', 'Boxplot', 'Piechart']
+    options=['Scatterplots', 'Lineplots', 'Piechart']
 )
 
 if chart_select == 'Scatterplots':
@@ -58,29 +58,6 @@ if chart_select == 'Lineplots':
         y_values = st.sidebar.selectbox('Y axis', options=numeric_columns)
         color_value = st.sidebar.selectbox("Color", options=non_numeric_columns)
         plot = px.line(data_frame=df, x=x_values, y=y_values, color=color_value)
-        st.plotly_chart(plot)
-    except Exception as e:
-        print(e)
-
-if chart_select == 'Histogram':
-    st.sidebar.subheader("Histogram Settings")
-    try:
-        x = st.sidebar.selectbox('Feature', options=numeric_columns)
-        bin_size = st.sidebar.slider("Number of Bins", min_value=10,
-                                     max_value=100, value=40)
-        color_value = st.sidebar.selectbox("Color", options=non_numeric_columns)
-        plot = px.histogram(x=x, data_frame=df, color=color_value)
-        st.plotly_chart(plot)
-    except Exception as e:
-        print(e)
-
-if chart_select == 'Boxplot':
-    st.sidebar.subheader("Boxplot Settings")
-    try:
-        y = st.sidebar.selectbox("Y axis", options=numeric_columns)
-        x = st.sidebar.selectbox("X axis", options=non_numeric_columns)
-        color_value = st.sidebar.selectbox("Color", options=non_numeric_columns)
-        plot = px.box(data_frame=df, y=y, x=x, color=color_value)
         st.plotly_chart(plot)
     except Exception as e:
         print(e)
